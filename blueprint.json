@@ -1,0 +1,22 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/wp-admin/admin.php",
+  "login": true,
+  "preferredVersions": {
+    "php": "8.2"
+  },
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/tutor.3.9.8.zip",
+    "https://rashed.im/tutor-pro.zip"
+  ],
+  "steps": [
+    {
+      "step": "activatePlugin",
+      "pluginPath": "tutor/tutor.php"
+    },
+    {
+      "step": "activatePlugin",
+      "pluginPath": "tutor-pro/tutor-pro.php"
+    }
+  ]
+}
