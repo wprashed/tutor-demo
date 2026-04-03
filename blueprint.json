@@ -1,14 +1,25 @@
 {
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
-  "landingPage": "/wp-admin/admin.php?page=tutor",
+
   "login": true,
+
+  "landingPage": "/wp-admin/admin.php?page=tutor",
+
   "preferredVersions": {
-    "php": "8.2"
+    "php": "8.2",
+    "wp": "latest"
   },
+
+  "siteOptions": {
+    "blogname": "Tutor LMS Demo",
+    "blogdescription": "Live Demo Environment"
+  },
+
   "plugins": [
     "https://downloads.wordpress.org/plugin/tutor.3.9.8.zip",
     "https://rashed.im/tutor-pro.zip"
   ],
+
   "steps": [
     {
       "step": "activatePlugin",
@@ -17,6 +28,18 @@
     {
       "step": "activatePlugin",
       "pluginPath": "tutor-pro/tutor-pro.php"
+    },
+
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "permalink_structure": "/%postname%/"
+      }
+    },
+
+    {
+      "step": "runPHP",
+      "code": "<?php update_option('users_can_register', 1); ?>"
     }
   ]
 }
